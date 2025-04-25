@@ -6,4 +6,6 @@ const useAuth = () => {
   if (!context) throw new Error('useAuthContext context is not inside of AuthProvider Tag');
   return context;
 };
+
+
 export default useAuth;
