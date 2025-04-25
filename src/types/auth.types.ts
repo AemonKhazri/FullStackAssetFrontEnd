@@ -6,6 +6,8 @@ export interface IRegisterDto {
     password: string;
     address: string;
   }
+
+
   
   export interface ILoginDto {
     userName: string;
@@ -67,6 +69,6 @@ export interface IRegisterDto {
   
   export enum RolesEnum {
     ADMIN = 'ADMIN',
-    MANAGER = 'MANAGER',
+    MANAGER = 'MANAGER', 
     USER = 'USER',
   }
