@@ -1,13 +1,16 @@
 import UserCountCard from './UserCountCard';
 import { IAuthUser, RolesEnum } from '../../../types/auth.types';
 import { FaUser, FaUserCog, FaUserShield, FaUserTie } from 'react-icons/fa';
+import Button from '../../../components/general/Button';
+import { useNavigate } from 'react-router-dom';
+import { PATH_DASHBOARD } from '../../../routes/paths';
 
 interface IProps {
   usersList: IAuthUser[];
 }
 
 const UserCountSection = ({ usersList }: IProps) => {
-  
+  const navigate = useNavigate();
   let admins = 0;
   let managers = 0;
   let users = 0;
@@ -33,6 +36,10 @@ const UserCountSection = ({ usersList }: IProps) => {
       {userCountData.map((item, index) => (
         <UserCountCard key={index} count={item.count} role={item.role} icon={item.icon} color={item.color} />
       ))}
+
+      <div className='flex items-center bg-white justify-center rounded-md gap-2'>
+            <Button label='Add New User' onClick={() => navigate(PATH_DASHBOARD.register)} type='button' variant='light' />
+                </div>
     </div>
   );
 };

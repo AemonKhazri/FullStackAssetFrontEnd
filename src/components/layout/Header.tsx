@@ -42,7 +42,7 @@ const Header = () => {
             UserName: {user ? user.userName : '--'}
           </h1>
           <h1 className='px-1 border border-dashed border-purple-300 rounded-lg'>
-            UserRoles: {userRolesLabelCreator()}
+            UserRole: {userRolesLabelCreator()}
           </h1>
         </div>
       </div>
@@ -59,7 +59,6 @@ const Header = () => {
           </div>
         ) : (
           <div className='flex items-center gap-2'>
-            <Button label='Register' onClick={() => navigate(PATH_PUBLIC.register)} type='button' variant='light' />
             <Button label='Login' onClick={() => navigate(PATH_PUBLIC.login)} type='button' variant='light' />
           </div>
         )}

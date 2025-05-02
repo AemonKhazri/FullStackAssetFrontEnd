@@ -17,7 +17,7 @@ import UsersManagementPage from '../pages/dashboard/UsersManagementPage';
 import HomePage from '../pages/public/HomePage';
 import LoginPage from '../pages/public/LoginPage';
 import NotFoundPage from '../pages/public/NotFoundPage';
-import RegisterPage from '../pages/public/RegisterPage';
+import RegisterPage from '../pages/dashboard/RegisterPage';
 import UnauthorizedPage from '../pages/public/UnauthorizedPage';
 
 const GlobalRouter = () => {
@@ -28,7 +28,6 @@ const GlobalRouter = () => {
         
         {/* Public routes */}
         <Route index element={<HomePage />} />
-        <Route path={PATH_PUBLIC.register} element={<RegisterPage />} />
         <Route path={PATH_PUBLIC.login} element={<LoginPage />} />
         <Route path={PATH_PUBLIC.unauthorized} element={<UnauthorizedPage />} />
 
@@ -49,6 +48,8 @@ const GlobalRouter = () => {
           <Route path={PATH_DASHBOARD.allMessages} element={<AllMessagesPage />} />
           <Route path={PATH_DASHBOARD.systemLogs} element={<SystemLogsPage />} />
           <Route path={PATH_DASHBOARD.admin} element={<AdminPage />} />
+          <Route path={PATH_DASHBOARD.register} element={<RegisterPage />} />
+
         </Route>
         {/* Protected routes -------------------------------------------------- */}
 

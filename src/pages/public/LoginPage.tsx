@@ -78,15 +78,7 @@ const LoginPage = () => {
           error={errors.password?.message}
         />
 
-        <div className='px-4 mt-2 mb-6 w-9/12 flex gap-2'>
-          <h1>Don't have an account?</h1>
-          <Link
-            to={PATH_PUBLIC.register}
-            className='text-[#754eb4] border border-[#754eb4] hover:shadow-[0_0_5px_2px_#754eb44c] px-3 rounded-2xl duration-200'
-          >
-            Register
-          </Link>
-        </div>
+      
 
         <div className='flex justify-center items-center gap-4 mt-6'>
           <Button variant='secondary' type='button' label='Reset' onClick={() => reset()} />

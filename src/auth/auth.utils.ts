@@ -23,7 +23,7 @@ export const adminAccessRoles = [ RolesEnum.ADMIN];
 // We need to specify which Roles can be updated by Logged-in user
 export const allowedRolesForUpdateArray = (loggedInUser?: IAuthUser): string[] => {
   return loggedInUser?.roles.includes(RolesEnum.ADMIN)
-    ? [ RolesEnum.MANAGER, RolesEnum.USER]
+    ? [ RolesEnum.MANAGER, RolesEnum.USER,RolesEnum.ADMIN]
     : [];
 };
 
@@ -33,7 +33,7 @@ export const isAuthorizedForUpdateRole = (loggedInUserRole: string, selectedUser
   if (loggedInUserRole !== RolesEnum.ADMIN) {
     result = false;
   } 
-if (selectedUserRole === RolesEnum.ADMIN ) {
+else if (selectedUserRole === RolesEnum.ADMIN ) {
     result = false;
   }
 
