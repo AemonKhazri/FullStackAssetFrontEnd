@@ -4,10 +4,12 @@ interface IProps {
     label: string;
     onClick: () => void;
     loading?: boolean;
+    isAdmin?:boolean;
     disabled?: boolean;
   }
   
-  const Button = ({ variant, type, label, onClick, loading, disabled }: IProps) => {
+  const Button = ({ variant, type, label, onClick, loading,isAdmin=true, disabled }: IProps) => {
+    if (!isAdmin) return null
     const primaryClasses = ' text-white bg-[#754eb4] border-[#754eb4] hover:shadow-[0_0_5px_5px_#754eb44c]';
   
     const secondaryClasses = ' text-white bg-amber-400 border-amber-400 hover:shadow-[0_0_5px_5px_#fbbe2465]';
@@ -37,6 +39,7 @@ interface IProps {
     };
   
     return (
+      
       <button type={type} onClick={onClick} className={classNameCreator()} disabled={disabled}>
         {loading ? loadingIconCreator() : label}
       </button>

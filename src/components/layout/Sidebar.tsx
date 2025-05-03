@@ -4,6 +4,8 @@ import Button from '../general/Button';
 import { useNavigate } from 'react-router-dom';
 import { PATH_DASHBOARD } from '../../routes/paths';
 
+
+
 const Sidebar = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -13,6 +15,7 @@ const Sidebar = () => {
     navigate(url);
   };
 
+  console.log("User roles:",  user?.roles?.includes('ADMIN'));
   return (
     <div className='shrink-0 bg-[#754eb4] w-60 p-2 min-h-[calc(100vh-48px)] flex flex-col items-stretch gap-8'>
       <div className='self-center flex flex-col items-center'>
@@ -27,12 +30,14 @@ const Sidebar = () => {
         onClick={() => handleClick(PATH_DASHBOARD.usersManagement)}
         type='button'
         variant='secondary'
+        isAdmin= {user?.roles?.includes('ADMIN')}
       />
       <Button
         label='Send Message'
         onClick={() => handleClick(PATH_DASHBOARD.sendMessage)}
         type='button'
         variant='secondary'
+        
       />
       <Button label='Inbox' onClick={() => handleClick(PATH_DASHBOARD.inbox)} type='button' variant='secondary' />
       <Button
@@ -40,12 +45,16 @@ const Sidebar = () => {
         onClick={() => handleClick(PATH_DASHBOARD.allMessages)}
         type='button'
         variant='secondary'
+        isAdmin= {user?.roles?.includes('ADMIN')}
+
       />
       <Button
         label='All Logs'
         onClick={() => handleClick(PATH_DASHBOARD.systemLogs)}
         type='button'
         variant='secondary'
+        isAdmin= {user?.roles?.includes('ADMIN')}
+
       />
       <Button label='My Logs' onClick={() => handleClick(PATH_DASHBOARD.myLogs)} type='button' variant='secondary' />
       <hr />
