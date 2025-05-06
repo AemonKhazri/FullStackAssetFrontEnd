@@ -29,7 +29,7 @@ handleSubmit,
 formState: { errors },
 reset,
 } = useForm<IUpdateCredentialsDto>({
-resolver: yupResolver(updateCredentialsSchema),
+resolver: yupResolver(updateCredentialsSchema) as any,
 defaultValues: {
 currentPassword: '',
 firstName: user?.firstName || undefined,

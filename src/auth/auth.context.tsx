@@ -119,7 +119,7 @@ const AuthContextProvider = ({ children }: IProps) => {
   );
   
   const updateCredentials = useCallback(
-    async(currentPassword:string, firstName:string,lastName:string,email:string,newPassword:string,address:string)=>{
+    async(currentPassword:string, firstName?:string,lastName?:string,email?:string,newPassword?:string,address?:string)=>{
       const response= await axiosInstance.put(UPDATE_CREDENTIALS_URL,{
         currentPassword,
         firstName,
@@ -131,7 +131,6 @@ const AuthContextProvider = ({ children }: IProps) => {
       console.log('update Result:', response);
       toast.success('updated successfully');
       navigate(PATH_AFTER_UPDATE_CREDENTIALS);
-
 
     },[]
   );
