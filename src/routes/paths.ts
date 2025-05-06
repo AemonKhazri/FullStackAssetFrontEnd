@@ -3,11 +3,13 @@ export const PATH_PUBLIC = {
     login: '/login',
     unauthorized: '/unauthorized',
     notFound: '/404',
+
   };
   
   export const PATH_DASHBOARD = {
     dashboard: '/dashboard',
     register: '/dashboard/register',
+    updateCredentials : '/dashboard/update-credentials',
     usersManagement: '/dashboard/users-management',
     updateRole: '/dashboard/update-role/:userName',
     sendMessage: '/dashboard/send-message',

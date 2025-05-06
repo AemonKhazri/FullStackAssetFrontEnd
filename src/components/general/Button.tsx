@@ -20,7 +20,7 @@ interface IProps {
   
     const classNameCreator = (): string => {
       let finalClassName =
-        'flex justify-center items-center outline-none duration-300 h-10 text-lg font-semibold px-6 rounded-2xl border-2';
+        'flex justify-center items-center outline-none duration-300 h-10 text-sm font-semibold px-6 rounded-2xl border-2';
       if (variant === 'primary') {
         finalClassName += primaryClasses;
       } else if (variant === 'secondary') {

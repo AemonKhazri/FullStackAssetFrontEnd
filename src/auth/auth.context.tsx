@@ -15,8 +15,10 @@ import {
   ME_URL,
   PATH_AFTER_LOGIN,
   PATH_AFTER_LOGOUT,
+  PATH_AFTER_UPDATE_CREDENTIALS,
   PATH_AFTER_REGISTER,
   REGISTER_URL,
+  UPDATE_CREDENTIALS_URL,
 } from '../utils/globalConfig';
 
 // We need a reducer function for useReducer hook
@@ -93,7 +95,7 @@ const AuthContextProvider = ({ children }: IProps) => {
   // In start of Application, We call initializeAuthContext to be sure about authentication status
   useEffect(() => {
     console.log('AuthContext Initialization start');
-    initializeAuthContext()
+    initializeAuthContext() 
       .then(() => console.log('initializeAuthContext was successfull'))
       .catch((error) => console.log(error));
   }, []);
@@ -116,6 +118,24 @@ const AuthContextProvider = ({ children }: IProps) => {
     []
   );
   
+  const updateCredentials = useCallback(
+    async(currentPassword:string, firstName:string,lastName:string,email:string,newPassword:string,address:string)=>{
+      const response= await axiosInstance.put(UPDATE_CREDENTIALS_URL,{
+        currentPassword,
+        firstName,
+        lastName,
+        email,
+        newPassword,
+        address,
+      });
+      console.log('update Result:', response);
+      toast.success('updated successfully');
+      navigate(PATH_AFTER_UPDATE_CREDENTIALS);
+
+
+    },[]
+  );
+
   // Login Method
   const login = useCallback(async (userName: string, password: string) => {
     const response = await axiosInstance.post<ILoginResponseDto>(LOGIN_URL, {
@@ -151,8 +171,8 @@ const AuthContextProvider = ({ children }: IProps) => {
     register,
     login,
     logout,
+    updateCredentials
   };
-  
   return <AuthContext.Provider value={valuesObject}>{children}</AuthContext.Provider>;
 };
 

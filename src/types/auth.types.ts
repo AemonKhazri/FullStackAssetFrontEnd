@@ -8,6 +8,15 @@ export interface IRegisterDto {
   }
 
 
+export interface IUpdateCredentialsDto {
+  currentPassword: string;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  newPassword?: string;
+  address?: string;
+}
+
   
   export interface ILoginDto {
     userName: string;
@@ -27,6 +36,7 @@ export interface IRegisterDto {
     email: string;
     createdAt: string;
     roles: string[];
+    address: string;
   }
   
   export interface ILoginResponseDto {
@@ -65,6 +75,10 @@ export interface IRegisterDto {
       address: string
     ) => Promise<void>;
     logout: () => void;
+    updateCredentials: (
+      updateCredentials: IUpdateCredentialsDto
+    
+    ) => Promise<void>;
   }
   
   export enum RolesEnum {

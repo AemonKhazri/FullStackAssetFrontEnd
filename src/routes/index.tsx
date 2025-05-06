@@ -19,6 +19,7 @@ import LoginPage from '../pages/public/LoginPage';
 import NotFoundPage from '../pages/public/NotFoundPage';
 import RegisterPage from '../pages/dashboard/RegisterPage';
 import UnauthorizedPage from '../pages/public/UnauthorizedPage';
+import UpdateCredentialsPage from '../pages/dashboard/UpdateCredentialsPage';
 
 const GlobalRouter = () => {
   return (
@@ -38,6 +39,7 @@ const GlobalRouter = () => {
           <Route path={PATH_DASHBOARD.inbox} element={<InboxPage />} />
           <Route path={PATH_DASHBOARD.myLogs} element={<MyLogsPage />} />
           <Route path={PATH_DASHBOARD.user} element={<UserPage />} />
+          <Route path={PATH_DASHBOARD.updateCredentials} element={<UpdateCredentialsPage/>}/>
         </Route>
         <Route element={<AuthGuard roles={managerAccessRoles} />}>
           <Route path={PATH_DASHBOARD.manager} element={<ManagerPage />} />
